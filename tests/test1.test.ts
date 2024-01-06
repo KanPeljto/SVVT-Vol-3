@@ -35,6 +35,6 @@ test("registration", async () => {
 },30000);
 
 
-//afterAll(async () => {
-  //  await quitDriver(driver);
-//},10000);
+afterAll(async () => {
+   await quitDriver(driver);
+},10000);

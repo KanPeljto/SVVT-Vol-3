@@ -33,6 +33,10 @@ test("log in", async () => {
     await kp.verifyFollowing();
  },60000);
 
+ test("remove following item", async() => {
+    await kp.removeListing();
+ }, 30000);
+
 
 
 

@@ -31,6 +31,6 @@ test("log in", async () => {
 },80000);
 
 
-//afterAll(async () => {
-  //  await quitDriver(driver);
-//},10000);
+afterAll(async () => {
+   await quitDriver(driver);
+},10000);

@@ -38,9 +38,13 @@ export class KpHome extends BasePage {
     private listingLink=By.xpath('//a[@href="/automobili/toyota/toyota-rav4/oglas/160981218?filterId=2023197765"]');
     private followingTab=By.xpath('//a[@href="/moj-kp/pratim"]');
     private rav4Listing=By.xpath('//div[@class="AdItem_name__RhGAZ"]');
+    private remListing = By.xpath('//div[@id="__next"]//div//div//div[2]//div//div//div[2]//section[3]//section//article//div//div[5]//button');
+
     constructor(driver: WebDriver) {
         super(driver);
     }
+
+    
 
     async clickRegister() {
         await this.findAndClick(this.regButton);
@@ -111,4 +115,7 @@ export class KpHome extends BasePage {
         await this.checkMatchingElements(this.rav4Listing,"Toyota RAV4");
     }
 
+    async removeListing(){
+        await this.findAndClick(this.remListing);
+    }
 }

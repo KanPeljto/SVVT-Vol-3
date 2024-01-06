@@ -34,6 +34,6 @@ test("check welcome message", async () => {
 },20000);
 
 
-//afterAll(async () => {
-  //  await quitDriver(driver);
-//},10000);
+afterAll(async () => {
+   await quitDriver(driver);
+},10000);
