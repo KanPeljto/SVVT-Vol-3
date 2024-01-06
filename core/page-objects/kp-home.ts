@@ -36,9 +36,9 @@ export class KpHome extends BasePage {
     
     //listings following
     private addToFollowingBtn=By.xpath('//*[@id="__next"]/div/div[3]/div/div/div[2]/section[1]/div[2]/section[1]/div[2]/div/button');
-    private listingLink=By.xpath('//*[@id="160981218"]/article/div/div[1]/div[1]/a/div');
-    private followingTab=By.xpath('//*[@id="__next"]/div/div[3]/div/div/div[1]/div[1]/section/ul/li[7]/a/span[2]');
-    private rav4Listing=By.xpath('//*[@id="__next"]/div/div/div[2]/div/div/div[2]/section[3]/section/article/div/div[1]/a');
+    private listingLink=By.xpath('//a[@href="/automobili/toyota/toyota-rav4/oglas/160981218?filterId=2023197765"]');
+    private followingTab=By.xpath('//a[@href="/moj-kp/pratim"]');
+    private rav4Listing=By.xpath('//div[@class="AdItem_name__RhGAZ"]');
     constructor(driver: WebDriver) {
         super(driver);
     }

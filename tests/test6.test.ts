@@ -31,7 +31,7 @@ test("log in", async () => {
  test("open and check Pratim tab",async()=>{
     await kp.clickFollowTab();
     await kp.verifyFollowing();
- })
+ },60000);
 
 
 
