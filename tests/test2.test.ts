@@ -22,12 +22,13 @@ beforeAll(async () => {
 
 test("log in", async () => {
    await kp.clickLogIn();
-   await driver.sleep(3000);
+   await driver.sleep(2000);
    await kp.enterEmail();
+   await driver.sleep(3000);
    await kp.enterPassword();
    await driver.sleep(20000) // time for captcha
    await kp.submitLogIn();
-},60000);
+},80000);
 
 
 //afterAll(async () => {

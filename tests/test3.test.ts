@@ -19,20 +19,19 @@ beforeAll(async () => {
     kp = new KpHome(driver);
 },10000);
 
+test("log in", async () => {
+    await kp.clickLogIn();
+    await driver.sleep(3000);
+    await kp.enterEmail();
+    await kp.enterPassword();
+    await driver.sleep(20000) // time for captcha
+    await kp.submitLogIn();
+ },60000);
 
-test("registration", async () => {
-   await kp.clickRegister();
-   await driver.sleep(2000);
-   await kp.enterEmail();
-   await driver.sleep(2500);
-   await kp.enterPassword();
-   await driver.sleep(2000);
-   await kp.repeatPassword();
-   await driver.sleep(2000);
-   await kp.checkTerms();
-   await driver.sleep(1700);
-   await kp.submitReg();
-},30000);
+test("check welcome message", async () => {
+   await kp.openMessages();
+   await kp.checkWelcomeMessage();
+},20000);
 
 
 //afterAll(async () => {
