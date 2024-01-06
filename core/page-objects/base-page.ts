@@ -12,7 +12,7 @@ export default class BasePage {
     async checkMatchingElements(selector: By, matchingItem: string){
         const element = await this.driver.findElement(selector);
         const elementText = await element.getText();
-        this.driver.expect(elementText).toMatch(matchingItem);
+        expect(elementText).toMatch(matchingItem);
     }
     async checkTitle(page: { getTitle: () => Promise<string>}, page_title: string){
         let title = await page.getTitle();

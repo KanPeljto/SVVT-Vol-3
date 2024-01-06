@@ -28,7 +28,17 @@ export class KpHome extends BasePage {
 
     private messages = By.xpath('//*[@href="/moj-kp/poruke/inbox"]//span[2]');
     private welcomeMessage = By.xpath('//*[@id="__next"]/div/div/div[2]/div/div/div[2]/form/section[2]/div[2]/a/div/div[1]'); //copied xpath
-
+    
+    
+    //search field
+    private search=By.xpath('//*[@id="keywords"]');
+    private searchBtn=By.xpath('//*[@id="__next"]/div/div[1]/div/div/div/div/div/div[2]/form/section/div/div[1]/div/section/section/div/span[2]/button');
+    
+    //listings following
+    private addToFollowingBtn=By.xpath('//*[@id="__next"]/div/div[3]/div/div/div[2]/section[1]/div[2]/section[1]/div[2]/div/button');
+    private listingLink=By.xpath('//*[@id="160981218"]/article/div/div[1]/div[1]/a/div');
+    private followingTab=By.xpath('//*[@id="__next"]/div/div[3]/div/div/div[1]/div[1]/section/ul/li[7]/a/span[2]');
+    private rav4Listing=By.xpath('//*[@id="__next"]/div/div/div[2]/div/div/div[2]/section[3]/section/article/div/div[1]/a');
     constructor(driver: WebDriver) {
         super(driver);
     }
@@ -75,6 +85,31 @@ export class KpHome extends BasePage {
     async checkWelcomeMessage(){
         await this.waitForElement(this.welcomeMessage, 2000);
         await this.checkMatchingElements(this.welcomeMessage, testData.kupujuemprodajem.dobrodosli);
+    }
+
+    async fillSearchField(){
+        await this.fillInputField(this.search,"toyota rav4");
+    }
+
+    async clickSearchBtn(){
+        await this.findAndClick(this.searchBtn);
+    }
+
+    async clickListing(){
+        await this.findAndClick(this.listingLink);
+    }
+
+    async addToFollowing(){
+        await this.findAndClick(this.addToFollowingBtn);
+
+    }
+
+    async clickFollowTab(){
+        await this.findAndClick(this.followingTab);
+    }
+
+    async verifyFollowing(){
+        await this.checkMatchingElements(this.rav4Listing,"Toyota RAV4");
     }
 
 }
