@@ -6,5 +6,8 @@
     "user": {
         "password": "burch1122!",
         "email": "kan@gracioso.com"
+    },
+    "kupujemprodajem": {
+        "welcomemessage": "Dobro došli!"
     }
 }

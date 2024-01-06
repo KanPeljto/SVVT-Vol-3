@@ -24,6 +24,10 @@ export class KpHome extends BasePage {
     private logInBtn = By.xpath('//*[@id="__next"]//div//div[3]//div//div//div//div//section//div//div//ul//li[2]//button[@class="Button_base__Pz8U1 Button_big__6JOpp ButtonPrimaryBlue_primaryBlue__Uz5k1 MyKpMenu_loginButton__BGK_f"]');
     private logInSubmit = By.xpath('/html/body/div[2]/div/div/aside/div/div/div[2]/main/div[2]/form/button');
 
+    // poruke
+
+    private messages = By.xpath('//*[@href="/moj-kp/poruke/inbox"]//span[2]');
+    private welcomeMessage = By.xpath('//*[@id="__next"]/div/div/div[2]/div/div/div[2]/form/section[2]/div[2]/a/div/div[1]'); //copied xpath
 
     constructor(driver: WebDriver) {
         super(driver);
@@ -62,5 +66,13 @@ export class KpHome extends BasePage {
         await this.findAndClick(this.submitLogIn);
     }
 
+
+    async openMessages(){
+        await this.findAndClick(this.messages);
+    }
+
+    async checkWelcomeMessage(){
+        await this.checkMatchingElements(this.welcomeMessage, testData.kupujuemprodajem.welcomemessage);
+    }
 
 }
