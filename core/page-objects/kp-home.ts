@@ -1,4 +1,4 @@
-import { By, WebDriver, until } from "selenium-webdriver";
+import { By, Key, WebDriver, until } from "selenium-webdriver";
 import BasePage from "./base-page";
 
 
@@ -39,6 +39,18 @@ export class KpHome extends BasePage {
     private followingTab=By.xpath('//a[@href="/moj-kp/pratim"]');
     private rav4Listing=By.xpath('//div[@class="AdItem_name__RhGAZ"]');
     private remListing = By.xpath('//div[@id="__next"]//div//div//div[2]//div//div//div[2]//section[3]//section//article//div//div[5]//button');
+
+    // change settings
+    private myAccount = By.xpath('//*[@id="__next"]/div/div[3]/div/div/div[1]/div[1]/section/ul/li[16]/a');
+    private mySettings = By.xpath('//*[@id="__next"]/div/div/div[2]/div/div/div[2]/section/section[1]/div[1]/a');
+    private myName = By.xpath('//input[@id="name"]');
+    private city = By.xpath('//*[@id="__next"]//div//div//div[2]//div//div//div[2]//section[2]//form//div[1]//section[2]//div[2]//div');
+    private cityInput = By.id('//*[@id="react-select-locationId-input"]');
+    private phoneNumber = By.id('phone');
+    private submitChanges = By.xpath('//*[@id="__next"]//div//div//div[2]//div//div//div[2]//section[2]//form//div[3]//button');
+
+    //misc
+    private cookiesBtn = By.xpath('//*[@id="__next"]/div/div[7]/div/div/div[2]/button');
 
     constructor(driver: WebDriver) {
         super(driver);
@@ -117,5 +129,28 @@ export class KpHome extends BasePage {
 
     async removeListing(){
         await this.findAndClick(this.remListing);
+    }
+
+    async openMyAccount(){
+        await this.findAndClick(this.myAccount);
+    }
+
+    async openMySettings(){
+        await this.findAndClick(this.mySettings);
+    }
+
+    async acceptCookies(){
+        await this.waitForElement(this.cookiesBtn, 5000);
+        await this.findAndClick(this.cookiesBtn);
+    }
+
+    async changeSettings(){
+        await this.findAndClick(this.myName);
+        await this.clearInput(this.myName);
+        await this.fillInputField(this.myName, testData.user.name);
+        await this.driver.sleep(1500);
+        await this.clearInput(this.phoneNumber);
+        await this.fillInputField(this.phoneNumber, testData.user.number);
+        await this.findAndClick(this.submitChanges);
     }
 }

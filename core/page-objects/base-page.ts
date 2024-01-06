@@ -1,4 +1,4 @@
-import { By, WebDriver, WebElement, until } from "selenium-webdriver";
+import { By,Key, WebDriver, WebElement, until } from "selenium-webdriver";
 export default class BasePage {
     protected driver: WebDriver;
 
@@ -40,10 +40,21 @@ async scrollToElement(element: WebElement): Promise<void> {
         await (await this.driver.findElement(inputField)).sendKeys(text);
     }
 
+    async sendEnter(inputField: By){
+        await (await this.driver.findElement(inputField)).sendKeys(Key.Enter);
+    }
+
     async findAndClick(selector: By){
         const element = this.driver.findElement(selector);
         await element.click();
     }
+
+    async clearInput(inputField: By){
+        const element = this.driver.findElement(inputField);
+        await element.sendKeys(Key.META, 'a');
+        await element.sendKeys(Key.BACK_SPACE);
+    }
+
 
 
 }
