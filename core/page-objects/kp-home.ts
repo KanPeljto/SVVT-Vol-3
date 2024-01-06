@@ -31,9 +31,8 @@ export class KpHome extends BasePage {
     
     
     //search field
-    private search=By.xpath('//*[@id="keywords"]');
-    private searchBtn=By.xpath('//*[@id="__next"]/div/div[1]/div/div/div/div/div/div[2]/form/section/div/div[1]/div/section/section/div/span[2]/button');
-    
+    private search=By.id('keywords');
+    private searchBtn=By.xpath('//button[@class="Button_base__Pz8U1 Button_big__6JOpp ButtonSearch_search__nLSRu ButtonSearch_isBlue__4Wdib"]');
     //listings following
     private addToFollowingBtn=By.xpath('//*[@id="__next"]/div/div[3]/div/div/div[2]/section[1]/div[2]/section[1]/div[2]/div/button');
     private listingLink=By.xpath('//a[@href="/automobili/toyota/toyota-rav4/oglas/160981218?filterId=2023197765"]');
