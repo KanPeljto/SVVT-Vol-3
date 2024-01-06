@@ -68,11 +68,13 @@ export class KpHome extends BasePage {
 
 
     async openMessages(){
+        await this.waitForElement(this.messages, 2000);
         await this.findAndClick(this.messages);
     }
 
     async checkWelcomeMessage(){
-        await this.checkMatchingElements(this.welcomeMessage, testData.kupujuemprodajem.welcomemessage);
+        await this.waitForElement(this.welcomeMessage, 2000);
+        await this.checkMatchingElements(this.welcomeMessage, testData.kupujuemprodajem.dobrodosli);
     }
 
 }
