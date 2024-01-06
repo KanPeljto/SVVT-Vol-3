@@ -19,6 +19,11 @@ export class KpHome extends BasePage {
     private ageTerms = By.xpath('/html/body/div[1]/div/div[2]/div/section/div[1]/section/div/form/span[2]/label/span[1]');
     private submit = By.xpath('//*[@id="__next"]/div/div[2]/div/section/div[1]/section/div/form/button');
 
+    // login
+
+    private logInBtn = By.xpath('//*[@id="__next"]//div//div[3]//div//div//div//div//section//div//div//ul//li[2]//button[@class="Button_base__Pz8U1 Button_big__6JOpp ButtonPrimaryBlue_primaryBlue__Uz5k1 MyKpMenu_loginButton__BGK_f"]');
+    private logInSubmit = By.xpath('/html/body/div[2]/div/div/aside/div/div/div[2]/main/div[2]/form/button');
+
 
     constructor(driver: WebDriver) {
         super(driver);
@@ -47,6 +52,14 @@ export class KpHome extends BasePage {
     async checkTerms(){
         await this.findAndClick(this.terms);
         await this.findAndClick(this.ageTerms);
+    }
+
+    async clickLogIn(){
+        await this.findAndClick(this.logInBtn);
+    }
+
+    async submitLogIn(){
+        await this.findAndClick(this.submitLogIn);
     }
 
 
