@@ -3,7 +3,7 @@ import  BasePage  from "../core/page-objects/base-page";
 import { createDriver, quitDriver } from "../core/config/driver-setup";
 import { readFileSync } from "fs";
 import * as path from "path";
-import { KpHome } from "../core/page-objects/kp-home";
+import { CategoriesPage } from "../core/page-objects/categories-page";
 
 
 const dataFilePath = path.resolve(__dirname, "../core/data/data.json");
@@ -12,18 +12,16 @@ const testData = JSON.parse(readFileSync(dataFilePath, "utf8"));
 // convert currency
 
 let driver: WebDriver;
-let kp: KpHome;
+let kp: CategoriesPage;
 
 
 beforeAll(async () => {
-    driver = await createDriver(testData.url.kp);
-    kp = new KpHome(driver);
+    driver = await createDriver(testData.url.ct);
+    kp = new CategoriesPage(driver);
 },10000);
 
 test("test advanced search", async()=>{
     await kp.acceptCookies();
-    await kp.scrollToAudio();
-    await kp.clickPhones();
     await kp.clickIphone();
     await kp.advancedSearch();
     await kp.priceFromField();

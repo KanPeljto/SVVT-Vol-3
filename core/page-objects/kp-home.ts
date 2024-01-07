@@ -59,15 +59,7 @@ export class KpHome extends BasePage {
     private audio=By.xpath('//div[@class="Tooltip_root__KbIe8"]/a[@href="/audio/kategorija/1"]');
     private mobilePhones=By.xpath('//a[@href="/mobilni-telefoni/kategorija/23"]');
 
-    //advanced search
-    private advancedSearchBtn=By.xpath('//span[@class="Button_children__3mYJw"]');
-    //private group=By.id('react-select-groupId-placeholder');
-    private priceFrom=By.xpath('//input[@id="priceFrom"]');
-    private priceCheckBox=By.xpath('//span[@class="Checkbox_label___QfTq"]');
-    //private conditionBtn=By.xpath('//div[@class=" css-19ak9pr-control"]');
-    //private condition=By.xpath('/html/body/div[1]/div/div[1]/div/div/div/div/div/div[2]/form/section/div/div[2]/div/div/div[1]/div[3]/span/div[3]/div/section/div/div');
-    private iphone=By.xpath('//a[@href="/mobilni-telefoni/apple-iphone/grupa/23/489/1"]');
-
+    
     constructor(driver: WebDriver) {
         super(driver);
     }
@@ -194,28 +186,7 @@ export class KpHome extends BasePage {
         return currentUrl.includes(testData.kategorije.mobile);
     }
 
-    async advancedSearch(){
-        await this.findAndClick(this.advancedSearchBtn);
-    }
-    // async selectGroup(){
-    //     await this.findAndClick(this.group);
-    // }
-    async priceFromField(){
-        await this.fillInputField(this.priceFrom,"50000");
-    }
-    async clickPriceCheckBox(){
-        await this.findAndClick(this.priceCheckBox);
-    }
-    // async dropdownCondition(){
-    //     await this.findAndClick(this.conditionBtn);
-    // }
-    // async selectCondition(){
-    //     await this.findAndClick(this.condition);
-    // }
-
-    async clickIphone(){
-        await this.findAndClick(this.iphone);
-    }
+   
 
 
 }
