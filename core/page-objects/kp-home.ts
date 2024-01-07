@@ -52,7 +52,8 @@ export class KpHome extends BasePage {
     //misc
     private cookiesBtn = By.xpath('//*[@id="__next"]/div/div[7]/div/div/div[2]/button');
     private currencyBtn = By.id('react-select-currencyFrom-input');
-    private amount = By.id('amount')
+    private amount = By.id('amount');
+    private convertedAmnt = By.xpath('//*[@id="__next"]/div/div[3]/div/div/div[1]/section[1]/form/section[3]/div[2]');
 
     constructor(driver: WebDriver) {
         super(driver);
@@ -159,5 +160,10 @@ export class KpHome extends BasePage {
     async convertToRsd(amount){
         await this.clearInput(this.amount);
         await this.fillInputField(this.amount, amount);
+    }
+
+    async checkConversion(){
+        // await this.checkMatchingElements(this.convertedAmnt, (parseInt(this.amount.value)).toString());  code works in console, bugged in tests 
+        await this.checkMatchingElements(this.convertedAmnt, testData.kupujemprodajem.convertedMoney); //hardcoded
     }
 }

@@ -30,12 +30,14 @@ test("log in", async () => {
     //await kp.submitLogIn(); nakon captche se automatski uloguje
  },60000);
 
-test("change information", async() => {
-    await kp.convertToRsd(500);
-}, 10000);
+test("convert to rsd", async() => {
+    const amount = 500;
+    await kp.convertToRsd(amount);
+    await kp.checkConversion();
+}, 20000);
 
 
 
-afterAll(async () => {
-   await quitDriver(driver);
-},10000);
+// afterAll(async () => {
+//    await quitDriver(driver);
+// },10000);

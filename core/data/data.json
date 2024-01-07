@@ -11,6 +11,7 @@
         "city": "Aleksinac"
     },
     "kupujemprodajem": {
-        "dobrodosli": "Dobro došli!"
+        "dobrodosli": "Dobro došli!",
+        "convertedMoney": "58.615"
     }
 }
