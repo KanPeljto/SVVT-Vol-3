@@ -12,6 +12,10 @@
     },
     "kupujemprodajem": {
         "dobrodosli": "Dobro došli!",
-        "convertedMoney": "58.615"
+        "convertedMoney": "58.615",
+        "searchInput": "toyota rav4"
+    },
+    "kategorije":{
+        "mobile":"mobilni-telefoni"
     }
 }

@@ -9,6 +9,7 @@ import { KpHome } from "../core/page-objects/kp-home";
 const dataFilePath = path.resolve(__dirname, "../core/data/data.json");
 const testData = JSON.parse(readFileSync(dataFilePath, "utf8"));
 
+// convert currency
 
 let driver: WebDriver;
 let kp: KpHome;
@@ -19,13 +20,21 @@ beforeAll(async () => {
     kp = new KpHome(driver);
 },10000);
 
+test("test advanced search", async()=>{
+    await kp.acceptCookies();
+    await kp.scrollToAudio();
+    await kp.clickPhones();
+    await kp.clickIphone();
+    await kp.advancedSearch();
+    await kp.priceFromField();
+    await kp.clickPriceCheckBox();
+    await kp.clickSearchBtn();
 
-test("search for listings", async () => {
-   await kp.fillSearchField();
-   await kp.clickSearchBtn();
-},20000);
+
+},30000);
 
 
-//afterAll(async () => {
-  // await quitDriver(driver);
-//},10000);
+
+// afterAll(async () => {
+//    await quitDriver(driver);
+// },10000);
