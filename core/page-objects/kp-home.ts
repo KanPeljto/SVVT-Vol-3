@@ -51,6 +51,8 @@ export class KpHome extends BasePage {
 
     //misc
     private cookiesBtn = By.xpath('//*[@id="__next"]/div/div[7]/div/div/div[2]/button');
+    private currencyBtn = By.id('react-select-currencyFrom-input');
+    private amount = By.id('amount')
 
     constructor(driver: WebDriver) {
         super(driver);
@@ -152,5 +154,10 @@ export class KpHome extends BasePage {
         await this.clearInput(this.phoneNumber);
         await this.fillInputField(this.phoneNumber, testData.user.number);
         await this.findAndClick(this.submitChanges);
+    }
+
+    async convertToRsd(amount){
+        await this.clearInput(this.amount);
+        await this.fillInputField(this.amount, amount);
     }
 }

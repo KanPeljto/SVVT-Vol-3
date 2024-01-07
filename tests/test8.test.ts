@@ -9,6 +9,7 @@ import { KpHome } from "../core/page-objects/kp-home";
 const dataFilePath = path.resolve(__dirname, "../core/data/data.json");
 const testData = JSON.parse(readFileSync(dataFilePath, "utf8"));
 
+// convert currency
 
 let driver: WebDriver;
 let kp: KpHome;

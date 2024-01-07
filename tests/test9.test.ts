@@ -9,6 +9,7 @@ import { KpHome } from "../core/page-objects/kp-home";
 const dataFilePath = path.resolve(__dirname, "../core/data/data.json");
 const testData = JSON.parse(readFileSync(dataFilePath, "utf8"));
 
+// convert currency
 
 let driver: WebDriver;
 let kp: KpHome;
@@ -20,21 +21,19 @@ beforeAll(async () => {
 },10000);
 
 test("log in", async () => {
+    await kp.acceptCookies();
     await kp.clickLogIn();
     await driver.sleep(3000);
     await kp.enterEmail();
     await kp.enterPassword();
     await driver.sleep(20000) // time for captcha
-    await kp.submitLogIn();
+    //await kp.submitLogIn(); nakon captche se automatski uloguje
  },60000);
 
-test("search for listings & add to following", async () => {
-    await driver.sleep(3000);
-   await kp.fillSearchField();
-   await kp.clickSearchBtn();
-   await kp.clickListing();
-   await kp.addToFollowing();
-},20000);
+test("change information", async() => {
+    await kp.convertToRsd(500);
+}, 10000);
+
 
 
 afterAll(async () => {
