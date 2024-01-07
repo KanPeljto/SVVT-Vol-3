@@ -38,6 +38,6 @@ test("change information", async() => {
 
 
 
-// afterAll(async () => {
-//    await quitDriver(driver);
-// },10000);
+afterAll(async () => {
+   await quitDriver(driver);
+},10000);
